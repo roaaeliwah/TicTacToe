@@ -113,6 +113,7 @@ public class TicTacToe {
                 tile.setFont(new Font("Arial", Font.BOLD, 50));
                 tile.setBackground(Color.pink);
                 tile.setForeground(Color.white);
+                tile.setBorder(BorderFactory.createLineBorder(Color.white, 2));
                 tile.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                         if(gameOver) return;
@@ -130,11 +131,6 @@ public class TicTacToe {
                     
                 });
             }
-        } while(true) {
-            
         }
-
-    }
-
-    
+    }  
 }
