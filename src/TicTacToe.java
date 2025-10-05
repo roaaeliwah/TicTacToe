@@ -105,6 +105,34 @@ public class TicTacToe {
         boardPanel.setLayout(new GridLayout(3,3));
         frame.add(boardPanel);
 
+        //reset button
+        JButton reset = new JButton();
+
+        reset.setFont(new Font("Times New Roman", Font.BOLD, 35));
+        reset.setBackground(Color.red);
+        reset.setForeground(Color.white);
+        reset.setText("reset");
+        reset.setBorder(BorderFactory.createLineBorder(Color.white, 2));
+        reset.setPreferredSize(new Dimension(200, 60));
+        reset.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                for(int i = 0; i < 3; i++) {
+                    for(int j = 0; j < 3; j++) {
+                        board[i][j].setText("");
+                        board[i][j].setBackground(Color.pink);
+                    }
+                }
+                currentPlayer = playerX;
+                gameOver = false;
+                turns = 0;
+                textLabel.setText("Tic-Tac-Toe");
+            }
+        });
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.add(reset);
+        frame.add(buttonPanel, BorderLayout.SOUTH);
+
+
         for(int i = 0; i < 3; i++) {
             for(int j = 0; j < 3; j++) {
                 JButton tile = new JButton();
